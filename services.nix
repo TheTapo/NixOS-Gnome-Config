@@ -9,21 +9,46 @@
     layout = "us";
    variant = "";
   };
-
-services.xserver = {
+ # services.displayManager.sddm.enable = true;
+ # services.displayManager.sddm.wayland.enable = true;
+ # services.desktopManager.plasma6.enable = true;
+ services.xserver = {
   enable = true;
   displayManager.gdm.enable = true;
   desktopManager.gnome.enable = true;
    };
-  environment.gnome.excludePackages = (with pkgs; [
+
+  environment.gnome.excludePackages = (with pkgs; 
+  [
   gnome-tour
-       ]) ++ (with pkgs.gnome; [
-  epiphany # web browser
-  geary # email reader
+  gnome-connections
+  snapshot
+  gnome-text-editor
+  epiphany 
+  totem
+  gnome-music
+  geary
+  simple-scan
+  seahorse
+  gnome-weather
+  gnome-contacts
+  gnome-font-viewer
+  gnome-maps
+  gnome-console
+  gnome-software
   evince
-               ]);
+  yelp
+  gnome-shell-extensions 
+  ]);
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+#	  plasma-browser-integration
+#	  konsole
+#	  elisa
+];
+
   # Printing
-  #services.printing.enable = false;
+  # services.printing.enable = false;
 
   # Bluetooth
   hardware.bluetooth = { enable = true; # enables support for Bluetooth
@@ -58,8 +83,7 @@ services.xserver = {
   # PipeWire
 
 hardware.pulseaudio.enable = false;
-#hardware.pulseaudio.support32Bit = true; 
-  sound.enable = true;
+# hardware.pulseaudio.support32Bit = true; 
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

@@ -15,69 +15,73 @@ nixpkgs.config = {
 };
 
   # List of packages installed in system profile.
-fonts.packages = with pkgs; [
-nerdfonts
+  fonts.packages = with pkgs; [
+     nerdfonts
 ];
   environment.systemPackages = with pkgs; [
-  #  wl-clipboard
-    neovim
-    gnome.gnome-tweaks
-    beeper
-    unstable.papers
-    gnome.dconf-editor
-    vimPlugins.packer-nvim
-   # zathura
-   # swaybg
-    htop
-#    ungoogled-chromium
- #   librewolf
- #  nheko
-  #  dunst
-   # mate.mate-polkit
-   # libsForQt5.qtstyleplugin-kvantum
-   # wdisplays
-   # emote
-#   libreoffice-fresh
-    p7zip
-    git
-    wget
-   # libnotify
-    killall
-   # wofi
-   # grim
-   # kitty
-   # slurp
-    pavucontrol
-    at-spi2-core
-    qpwgraph
-    bleachbit
-#    hyprland-share-picker
-   # hyprland
-   # mpv
-    pfetch
-    keepassxc
-    brave
- #  veracrypt
+     neovim
+     gnome-tweaks
+     blackbox-terminal
+     celluloid
+     papers
+     p7zip
+     git
+     htop
+     wget
+     killall
+     at-spi2-core
+     keepassxc
+     brave
+#    veracrypt
+#    libnotify
 #    ytfzf
-  #  swayimg
+#    swayimg
 #    gimp
-   # qt5ct
- #  virt-manager
-   # qtstyleplugin-kvantum-qt4
-   # xfce.thunar
+#    qt5ct
+#    virt-manager
+#    qtstyleplugin-kvantum-qt4
+#    qpwgraph
+#    bleachbit
+#    hyprland-share-picker
+#    hyprland
+#    mpv
+#    pfetch
+#    xfce.thunar
+#    wofi
+#    grim
+#    kitty
+#    slurp
+#    pavucontrol
+#    dconf-editor
+#    gnome-extension-manager
+#    vimPlugins.packer-nvim
+#    zathura
+#    qutebrowser
+#    torbrowser
+#    swaybg
+#    ungoogled-chromium
+#    librewolf
+#    nheko
+#    dunst
+#    mate.mate-polkit
+#    wl-clipboard
+#    libsForQt5.qtstyleplugin-kvantum
+#    wdisplays
+#    emote
+#    libreoffice-fresh
+
+  
    ];
 
  # Virtualisation 
    virtualisation = {
-       lxd.enable = false;
-       waydroid.enable = false;
        vmware.host.enable = false;
-      libvirtd.enable = false;
-      docker.enable = false;
+       libvirtd.enable = false;
+       docker.enable = false;
   };
 
 
-  # zsh
+  # bash
   users.defaultUserShell = pkgs.bash;
 
 }

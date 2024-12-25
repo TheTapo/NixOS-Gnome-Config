@@ -14,12 +14,10 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nix.settings.auto-optimise-store = true;
-  sound.enable = true;
     # auto update
-  system.autoUpgrade = {
-    enable = true;
-  };
-
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
+#  boot.kernelPackages = pkgs.linuxPackages_latest;
   # Automatic Garbage Collection
    nix.gc = {
                 automatic = true;
